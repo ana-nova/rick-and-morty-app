@@ -28,13 +28,13 @@ async function fetchCharacters() {
     maxPage = data.info.pages;
     return data.results;
   } catch (error) {
-    console.log(`Error, status: ${error.message}`)
+    console.log(`Error, status: ${error.message}`);
   }
 }
 
 async function renderCharacters() {
   try {
-    const characters = await fetchCharacters(page);
+    const characters = await fetchCharacters();
 
     cardContainer.innerHTML = "";
 
