@@ -15,19 +15,19 @@ let maxPage = 1; // changed to let
 let page = 1;
 let searchQuery = "";
 
-async function fetchCharacters(page) {
+async function fetchCharacters() {
   try {
     const response = await fetch(
       `https://rickandmortyapi.com/api/character?page=${page}&name=${searchQuery}` // &name=<searchQuery> // creation of templateString
     );
     if (!response.ok) {
-      throw new Error(`status:${response.status}`);
+      throw new Error(`status for API: ${response.status}`);
     }
     const data = await response.json();
     maxPage = data.info.pages;
     return data.results;
   } catch (error) {
-    console.log("Error!!!");
+    console.log(`Error, status: ${error.message}`)
   }
 }
 
@@ -44,7 +44,7 @@ async function renderCharacters() {
     // pagination between buttons
     pagination.textContent = `seite ${page} von ${maxPage}`;
   } catch (error) {
-    console.log("Wieder Error!!!");
+    console.log(`Character not found: ${error.message}`);
   }
 }
 
