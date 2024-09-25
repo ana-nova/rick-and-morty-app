@@ -1,11 +1,12 @@
 import { CharacterCard } from "./components/CharacterCard/CharacterCard.js";
+import { SearchBar } from "./components/SearchBar/SearchBar.js";
 
 const cardContainer = document.querySelector('[data-js="card-container"]');
 const searchBarContainer = document.querySelector(
   '[data-js="search-bar-container"]'
 );
-const searchBar = document.querySelector('[data-js="search-bar"]');
-const navigation = document.querySelector('[data-js="navigation"]');
+
+//const navigation = document.querySelector('[data-js="navigation"]');
 const prevButton = document.querySelector('[data-js="button-prev"]');
 const nextButton = document.querySelector('[data-js="button-next"]');
 const pagination = document.querySelector('[data-js="pagination"]');
@@ -66,11 +67,12 @@ prevButton.addEventListener("click", () => {
 
 renderCharacters();
 
-searchBar.addEventListener("submit", (event) => {
+// search teil:
+const searchBar = SearchBar((event) => {
   event.preventDefault();
-  // const formElements = new formData(searchBar);
-  searchQuery = event.target.elements[0].value;
-  console.log(searchQuery);
+  searchQuery = event.target.elements.query.value;
   page = 1;
   renderCharacters();
 });
+
+searchBarContainer.append(searchBar);
