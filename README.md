@@ -1,4 +1,4 @@
-# Recap Project 3: Rick and Morty App
+# Recap Project: Rick and Morty App
 
 We built a single-page app to browse all characters from the TV show _Rick and Morty_. You can search for your favorite characters, paginate through the entire roster and even check out their status, species, and origins.
 
